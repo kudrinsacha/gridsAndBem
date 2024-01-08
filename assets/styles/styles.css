@@ -12,7 +12,11 @@ body {
 img {
     display: block;
 }
-
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 .container {
     padding: 0 16px;
 }
@@ -30,18 +34,14 @@ img {
     height: 88px;
 }
 
-.header img {
-    cursor: pointer;
-}
-
 .header__logo, .header__menu {
     display: flex;
     align-items: center;
 }
-.header__menu img:nth-child(-n + 3){
+.header__menu button:nth-child(-n + 3){
     display: none;
 }
-.header__logo img:first-child, .header__menu img:nth-child(5) {
+.header__logo button:first-child, .header__menu button:nth-child(5) {
     margin-right: 16px;
 }
 .header__logo > .header__divider{
@@ -88,17 +88,19 @@ img {
     display: none;
 }
 .main-header__support, .main-header__status{
+    margin-right: 32px;
+}
+.main-header__support button, .main-header__status button{
     display: flex;
     align-items: center;
-    margin-right: 32px;
-    cursor: pointer;
-}
-.main-header__support span, .main-header__status span{
     font-size: 16px;
     letter-spacing: -0.2px;
     color: #1B1C21;
     margin-right: 8px;
     font-weight: 600;
+}
+.main-header__support span, .main-header__status span{
+    margin-right: 8px;
 }
 
 .form {
@@ -151,12 +153,13 @@ img {
 }
 .section__read-more{
     margin: 16px 0 0 32px;
+    position: relative;
+}
+.section__read-more button{
     font-size: 16px;
     letter-spacing: -0.2px;
     color: #1B1C21;
     font-weight: 600;
-    cursor: pointer;
-    position: relative;
 }
 .section__read-more::before{
     content: '';
@@ -188,16 +191,16 @@ img {
     .header__logo > .header__divider{
         display: block;
     }
-    .header__logo img:first-child, .header__divider{
+    .header__logo button:first-child, .header__divider{
         margin-right: 20px;
     }
-    .header__menu img{
+    .header__menu button{
         display: block!important;
     }
-    .header__menu img:not(:last-child){
+    .header__menu button:not(:last-child){
         margin-right: 16px;
     }
-    .header__menu img:nth-child(3){
+    .header__menu button:nth-child(3){
         margin-right: 20px;
     }
 
