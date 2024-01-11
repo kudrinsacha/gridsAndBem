@@ -7,6 +7,7 @@
 
 body {
     background-color: #F8F8F8;
+    color: #1B1C21;
 }
 
 img {
@@ -22,9 +23,9 @@ button{
 }
 
 .header {
-    height: 88px;
     box-shadow: 0 1px #D9FFF5;
     background-color: #fff;
+    padding: 0 16px;
 }
 
 .header__nav {
@@ -33,18 +34,16 @@ button{
     align-items: center;
     height: 88px;
 }
-
+.header__button:hover{
+    opacity: 50%;
+    transition: 0.5s;
+}
 .header__logo, .header__menu {
     display: flex;
     align-items: center;
+    gap: 16px;
 }
-.header__menu button:nth-child(-n + 3){
-    display: none;
-}
-.header__logo button:first-child, .header__menu button:nth-child(5) {
-    margin-right: 16px;
-}
-.header__logo > .header__divider{
+.header__button_none{
     display: none;
 }
 .header__divider {
@@ -57,59 +56,68 @@ button{
     display: none;
 }
 
-.main-header, .form, .section {
-    margin-top: 24px;
+
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
-}
-.main-header__title{
-    display: flex;
-}
-.main-header__highlight {
-    width: 4px;
-    height: 40px;
-    background-color: #41F6D7;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    padding-top: 24px;
 }
 
 .main-header__text {
-    margin-left: 12px;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 28px;
     letter-spacing: -0.6px;
-    color: #1B1C21;
+    line-height: 40px;
+    position: relative;
+}
+.main-header__text::before{
+    content: '';
+    background-image: url("../images/icon-highlight.svg");
+    width: 4px;
+    height: 40px;
+    position: absolute;
+    left: -16px;
+    top: -2px;
 }
 .main-header__menu{
     display: none;
 }
-.main-header__support, .main-header__status{
-    margin-right: 32px;
-}
-.main-header__support button, .main-header__status button{
+
+.main-header__button{
     display: flex;
     align-items: center;
+    gap: 8px;
     font-size: 16px;
     letter-spacing: -0.2px;
-    color: #1B1C21;
-    margin-right: 8px;
-    font-weight: 600;
+    line-height: 24px;
+    font-weight: 500;
+    transition: 0.5s;
 }
-.main-header__support span, .main-header__status span{
-    margin-right: 8px;
+.main-header__button:hover{
+    opacity: 50%;
 }
 
 .form {
     display: flex;
     white-space: nowrap;
-    margin-left: 16px;
     align-items: center;
     height: 40px;
     overflow: scroll;
+}
+.form::after{
+    content: '';
+    width: 24px;
+    height: 40px;
+    background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.00) 100%);
+    position: absolute;
+    right: 15px;
+    top: 174px;
 }
 .form::-webkit-scrollbar{
     display: none;
@@ -117,10 +125,14 @@ button{
 .radio{
     cursor: pointer;
 }
+.radio:hover .radio__input:not(:checked) + .radio__text{
+    opacity: 50%;
+}
 .radio__text {
     color: #7E7E82;
     font-size: 16px;
     letter-spacing: -0.2px;
+    line-height: 24px;
     border-radius: 6px;
     border: 2px solid transparent;
     padding: 7px 22px;
@@ -135,98 +147,90 @@ button{
 .radio__input:checked + .radio__text {
     background-color: #fff;
     border: 2px solid #B8FFEC;
+    cursor: default;
 }
 
-.section{
-    height: 322px;
-}
+
 .section__text{
     font-size: 14px;
     letter-spacing: 0.2px;
-    color: #1B1C21;
+    line-height: 18px;
+    width: 288px;
+    height: 90px;
+    overflow: hidden;
 }
-.section__text_screen_768{
-    display: none;
-}
-.section__text_screen_1120{
-    display: none;
-}
-.section__read-more{
-    margin: 16px 0 0 32px;
+.section__button{
+    padding: 16px 0 0 32px;
     position: relative;
-}
-.section__read-more button{
     font-size: 16px;
     letter-spacing: -0.2px;
-    color: #1B1C21;
-    font-weight: 600;
+    line-height: 24px;
+    font-weight: 500;
+    transition: 0.5s;
 }
-.section__read-more::before{
+.section__button:hover{
+    opacity: 50%;
+}
+.section__button::before{
     content: '';
     background-image: url("../images/arrow.svg");
     width: 24px;
     height: 24px;
     position: absolute;
-    left: -31px;
-    top: -2px;
+    left: 0;
+    top: 14px;
     cursor: pointer;
 }
 .section__image{
     width: 320px;
     height: 176px;
-    margin-top: 16px;
+    padding-top: 16px;
+    margin: 0 -16px;
 }
 
+@media (min-width: 321px){
+    .header__divider{
+        display: none;
+    }
+}
 @media (min-width: 768px){
     .container {
         padding: 0 24px;
     }
-    
-    .header__divider_none{
+
+    .header{
+        padding: 0 24px;
+    }
+    .header__divider, .header__divider_none{
         display: block;
     }
-   .header__logo + .header__divider{
-        display: none;
-    }
-    .header__logo > .header__divider{
+    .header__button_none{
         display: block;
-    }
-    .header__logo button:first-child, .header__divider{
-        margin-right: 20px;
-    }
-    .header__menu button{
-        display: block!important;
-    }
-    .header__menu button:not(:last-child){
-        margin-right: 16px;
-    }
-    .header__menu button:nth-child(3){
-        margin-right: 20px;
     }
 
-    .header__text{
-        margin-left: 20px;
+    .main{
+        gap: 32px;
     }
-    .form{
-        margin: 32px 0 0 24px;
+    .main-header__text::before{
+        left: -24px;
     }
+
     .section{
         display: flex;
         justify-content: space-between;
-        margin-top: 32px;
     }
     .section__text{
         width: 312px;
+        height: 160px;
+        line-height: 20px;
     }
     .section__image{
         width: 360px;
         height: 208px;
-        margin: 0 25px 0 24px;
+        margin: 0;
+        padding: 0;
     }
-    .section__text_screen_768{
-        display: block;
-        margin-top: 32px;
-    }
+
 }
 
 @media (min-width: 1120px) {
@@ -237,33 +241,33 @@ button{
     .header{
         display: none;
     }
-
+    .main{
+        gap: 18px;
+    }
     .main-header{
-        margin-top: 42px;
+        padding-top: 42px;
     }
     .main-header__menu{
         display: flex;
+        gap: 32px;
     }
-    .header__text{
-        margin-left: 30px;
+    .main-header__text::before{
+        left: -34px;
     }
     .form{
-        margin: 8px 0 0 32px;
+        width: 1088px;
         height: 82px;
         flex-wrap: wrap;
     }
-    .section{
-        margin-top: 16px;
+    .form::after{
+        display: none;
     }
     .section__image{
         width: 532px;
         height: 307px;
-        margin: 0 34px 0 2px;
     }
     .section__text{
         width: 490px;
-    }
-    .section__text_screen_1120{
-        display: inline;
+        height: 160px;
     }
 }
