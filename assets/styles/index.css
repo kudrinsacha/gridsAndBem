@@ -218,6 +218,7 @@ button{
         gap: 48px;
     }
     .section__info{
+        flex-basis: 50%;
         gap: 10px;
     }
     .section__text{
@@ -227,7 +228,8 @@ button{
     }
     .section__image{
         min-width: 360px;
-        height: 208px;
+        min-height: 208px;
+        flex-basis: 50%;
         margin: 0;
         border-radius: 6px;
     }
@@ -266,7 +268,11 @@ button{
     .section{
         gap: 36px;
     }
+    .section__info{
+        flex-basis: auto;
+    }
     .section__image{
+        flex-basis: auto;
         min-width: 532px;
         height: 307px;
     }
